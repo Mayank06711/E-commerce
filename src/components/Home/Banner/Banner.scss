@@ -1,0 +1,108 @@
+@import "../../../css-config/mixins.scss";
+.hero-banner {
+  padding: 40px 0;
+  position: relative;
+  background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+  // above is used to give back gradient to image
+  @include md {
+    height: calc(100vh - 80px);
+  }
+  .content {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    // to make our img at right end
+    align-items: center;
+    flex-direction: column-reverse;
+    // flex-direcion is coloum in mobile
+    max-width: calc(100% - 20px);
+
+    margin: 0 auto;
+    // auto se left aur right ka space equally distribute ho jaega 0  auto krne se
+    @include md {
+      flex-direction: row;
+      max-width: 1200px;
+    }
+    .banner-img {
+      position: relative;
+      z-index: 9;
+      width: 200px;
+      margin-bottom: 20px;
+      @include md {
+        // this is for desktop
+        width: 500px;
+        margin-right: 60px;
+        margin-top: 50px;
+        margin-bottom: 0;
+        // if margin-bottom na add krte to upper ka margin-bottom 20px add ho jat inherit ho jata
+      }
+      @include xxl {
+        // this is for desktop for high resolution screen 1950px
+        width: 600px;
+        margin-right: 0;
+        margin-top: 0;
+        // margin-bottom: 0;  this will be inherited from above since css is inherit
+      }
+    }
+    .text-content {
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      // in mobile dire column isse ek ke niche ek a jaengi otherwise displey:flex ki wajah se wo ek ke sath aa jaengi
+      align-items: center;
+      @include md {
+        position: absolute;
+        left: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        // isse center pe aa jaega vertically center
+      }
+      @include xxl {
+        left: 0;
+      }
+      h1 {
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 20px;
+        @include md {
+          font-size: 180px;
+        }
+      }
+      p {
+        max-width: 300px;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 20px;
+        @include md {
+          max-width: 500px;
+          font-size: 18px;
+          line-height: 24px;
+          margin-bottom: 40px;
+        }
+      }
+      .ctas {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        .banner-cta {
+          text-transform: uppercase;
+          font-size: 13px;
+          font-weight: 500;
+          // width: fit-content;
+          border: 2px solid white;
+          padding: 10px 20px;
+          cursor: pointer;
+          &.v2 {
+            background-color: white;
+            color: black;
+          }
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}
